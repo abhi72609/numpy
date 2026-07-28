@@ -22,3 +22,28 @@ print("Votes array size:", votes.size)
 print("Costs array shape:", costs.shape)
 print("Costs array dimensions:", costs.ndim)
 print("Costs array size:", costs.size)
+
+
+
+# Take first 5 elements of votes and costs
+subset_votes = votes[:5]
+subset_costs = costs[:5]
+
+# Create a 2D array: 5 rows, 2 columns (each row: [vote_count, cost])
+two_d_data = np.array([
+    subset_votes,
+    subset_costs
+]).T  # transpose so that each row corresponds to a single restaurant
+
+print("2D Array:\n", two_d_data)
+print("Shape:", two_d_data.shape)
+print("Dimensions:", two_d_data.ndim)
+print("Size:", two_d_data.size)
+
+
+
+import numpy as np
+
+a = np.array(['1.2', '2.5', '3.6', '4.8'])
+print("Type of a: ", type(a))
+print("Type of elements of a: ", a.dtype)
