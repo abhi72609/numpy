@@ -14,7 +14,6 @@ print(type(votes))
 
 votes * 2
 
-
 # Dimensions & Shape
 print("Votes array shape:", votes.shape)
 print("Votes array dimensions:", votes.ndim)
