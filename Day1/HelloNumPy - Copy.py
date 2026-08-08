@@ -47,15 +47,3 @@ import numpy as np
 a = np.array(['1.2', '2.5', '3.6', '4.8'])
 print("Type of a: ", type(a))
 print("Type of elements of a: ", a.dtype)
-
-a = a.astype(float)
-print(a.dtype)
-
-print("First 5 votes:", votes[:5])
-print("First 10 costs:", costs[:10])
-
-# 2D array slicing (two_d_data from above)
-print("First 3 rows of the 2D array:\n", two_d_data[:3, :])
-
-print("Last vote:", votes[-1])
-print("Second last vote:", votes[-2])

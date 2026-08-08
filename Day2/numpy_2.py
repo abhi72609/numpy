@@ -73,7 +73,7 @@ print("All cost below 5000?", all_below_5000)
 
 # where
 # Syntax: np.where(condition, value_if_true, value_if_false)
-ratings = np.array([4.9, 4.1, 4.8])
+ratings = np.array([4.9, 4.1, 4.4])
 # Labeling sessions
 labels = np.where(ratings >= 4.2, "Green Flag", "Red Flag")
 print(labels)
@@ -101,3 +101,91 @@ print("Votes sorted in descending order:", np.sort(votes)[::-1][:10])  # Display
 
 sorted_indices = np.argsort(votes)  # Indices that would sort the votes
 print("Indices for Sorting:", sorted_indices[:10])
+
+
+
+
+
+# Sorting a 2D Array
+# Example 2D array
+array_2d = np.array([[34, 11, 8],
+                     [7, 45, 18],
+                     [9, 23, 20]])
+
+# Sort along rows (axis=1)
+sorted_rows = np.sort(array_2d, axis=1)
+
+# Sort along columns (axis=0)
+sorted_columns = np.sort(array_2d, axis=0)
+
+print("Original 2D Array: \n", array_2d)
+print("---"* 10)
+print("Sorted along Rows: \n", sorted_rows)
+print("---"* 10)
+print("Sorted along Columns: \n", sorted_columns)
+
+
+
+# Sorting by ratings
+sorted_indices_by_rating = np.argsort(ratings)
+sorted_ratings = ratings[sorted_indices_by_rating]
+
+print("Sorted Ratings:\n", sorted_ratings[:10])  # Show top 10 sorted ratings
+
+
+
+
+# Question
+# What will be the output?
+
+nums = ["10", "2", "1", "20", "15"]
+print(sorted(nums))
+# ['1', '10', '15', '2', '20']
+# Since all elements are strings, Python compares them character by character.
+# Comparison happens like this:
+
+# "1" → starts with '1'
+# "10" → also starts with '1', then '0'
+# "2" → starts with '2'
+# "20" → starts with '2', then '0'
+
+
+
+
+
+
+# Matrix multiplication
+# Element-wise Multiplication
+# This is an array multiplied by an array of the same shape
+
+# Element-wise multiplication
+votes = np.array([ 775,  787,  918])
+weighted_scores = votes * ratings
+
+print("Weighted scores (sample):\n", weighted_scores[:5])
+
+
+
+# numeric_data
+numeric_data = np.arange(11,20).reshape(3,3)
+
+# Create a random transformation matrix
+transformation_matrix = np.array([[1.2, 0.8, 0.5],
+                                   [0.5, 1.5, 1.0],
+                                   [0.7, 0.6, 1.8]])
+
+# Matrix multiplication using np.dot()
+transformed_data_dot = np.dot(numeric_data, transformation_matrix)
+
+# Matrix multiplication using @ operator
+transformed_data_at = numeric_data @ transformation_matrix
+
+# Matrix multiplication using np.matmul()
+transformed_data_matmul = np.matmul(numeric_data, transformation_matrix)
+
+print("Transformed Data (np.dot):\n", transformed_data_dot)
+print("---"* 10)
+print("Transformed Data (@ operator):\n", transformed_data_at)
+print("---"* 10)
+print("Transformed Data (np.matmul):\n", transformed_data_matmul)
+print("---"* 10)
