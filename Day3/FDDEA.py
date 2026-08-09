@@ -36,3 +36,69 @@ result = col_matrix + row_matrix
 print(f"{col_matrix} + {row_matrix} =")
 print("---"* 10)
 print(result)
+
+
+# Broadcasting in 2D Arrays
+# Example: Compatible shapes
+array1 = np.array([[1, 2, 3], [4, 5, 6]])
+array2 = np.array([[10], [20]])
+
+# Broadcasting works
+result = array1 + array2
+
+print("Array 1:\n", array1)
+print("---"* 10)
+
+print("Array 2:\n", array2)
+print("---"* 10)
+
+print("Result:\n", result)
+
+# Example: Incompatible shapes
+# This is expected to fail!
+# array1 = np.array([[1, 2, 3], [4, 5, 6]])
+# array2 = np.array([[10, 20]])
+
+# result = array1 + array2
+# result
+
+
+# Using np.tile()
+# Example: Explicit broadcasting with np.tile
+array1 = np.array([[1, 2, 3]])
+array2 = np.array([[10], [20], [30]])
+
+# Use np.tile to match shapes
+array1_tiled = np.tile(array1, (3, 1))
+print(array1_tiled)
+
+# Perform addition
+result = array1_tiled + array2
+print("Result:\n", result)
+
+
+# Vectorization
+
+
+# When working with arrays, applying a Python function directly to a NumPy array often leads to errors.
+# Example: Apply a custom function to the 'rate' column
+def categorize_rating(rating):
+    "Categorize ratings into high or low."""
+    if rating >= 4.0:
+        return "High"
+    else:
+        return "Low"
+# Attempt to apply the function directly
+# This is expected to fail!
+# categorized_ratings = categorize_rating(numeric_data[:, 0])  # 'rate' column
+# print(categorized_ratings)
+
+
+# Vectorize the categorize_rating function
+vectorized_categorize_rating = np.vectorize(categorize_rating)
+# print(vectorized_categorize_rating)
+# Apply the vectorized function to the 'rate' column
+categorized_ratings = vectorized_categorize_rating(numeric_data[:, 0])
+
+# Display a sample of the categorized ratings
+print("Categorized Ratings (sample):", categorized_ratings[:10])
