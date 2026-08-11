@@ -98,6 +98,8 @@ def categorize_rating(rating):
 vectorized_categorize_rating = np.vectorize(categorize_rating)
 # print(vectorized_categorize_rating)
 # Apply the vectorized function to the 'rate' column
+# numeric_data
+numeric_data = np.arange(11,20).reshape(3,3)
 categorized_ratings = vectorized_categorize_rating(numeric_data[:, 0])
 
 # Display a sample of the categorized ratings
