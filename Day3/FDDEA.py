@@ -104,3 +104,33 @@ categorized_ratings = vectorized_categorize_rating(numeric_data[:, 0])
 
 # Display a sample of the categorized ratings
 print("Categorized Ratings (sample):", categorized_ratings[:10])
+
+# Define a function to calculate the discounted cost
+def discount_cost(rate, cost):
+    "Apply a 10% discount if the rating is 4.0 or higher."""
+    if rate >= 4.0:
+        return cost * 0.9
+    else:
+        return cost
+
+# Vectorize the discount_cost function
+vectorized_discount_cost = np.vectorize(discount_cost)
+
+# Apply the vectorized function to 'rate' and 'approx_cost(for two people).'
+discounted_costs = vectorized_discount_cost(numeric_data[:, 0], numeric_data[:, 2])
+
+# Display a sample of the discounted costs
+print("Discounted Costs (sample):", discounted_costs[:10])
+
+
+
+# Split
+
+# 1D array
+array_1d = np.array([1, 2, 3, 4, 5, 6])
+
+# Split into 3 sections
+split_1d = np.split(array_1d, 3)
+
+print("Original Array:", array_1d)
+print("Splits:", split_1d)
