@@ -126,7 +126,7 @@ print("Discounted Costs (sample):", discounted_costs[:10])
 
 # Split
 
-# 1D array
+# Splitting a 1D Array
 array_1d = np.array([1, 2, 3, 4, 5, 6])
 
 # Split into 3 sections
@@ -134,3 +134,38 @@ split_1d = np.split(array_1d, 3)
 
 print("Original Array:", array_1d)
 print("Splits:", split_1d)
+
+
+# Splitting a 2D Array
+array_2d = np.array([[1, 2, 3, 4],
+                     [5, 6, 7, 8]])
+
+# Split into 2 along axis=1 (columns)
+split_2d = np.split(array_2d, 2, axis=1)
+
+print("Original Array:\n", array_2d)
+print("=="*10)
+print("Splits:")
+for part in split_2d:
+    print(part)
+
+
+
+# Horizontal Splitting with np.hsplit()
+hsplit_2d = np.hsplit(array_2d, 2)
+
+print("Original Array:\n", array_2d)
+print("=="*10)
+print("Horizontal Splits:")
+for part in hsplit_2d:
+    print(part)
+
+
+# Vertical Splitting with np.vsplit()
+vsplit_2d = np.vsplit(array_2d, 2)
+
+print("Original Array:\n", array_2d)
+print("Vertical Splits:")
+for part in vsplit_2d:
+    print(part)
+
